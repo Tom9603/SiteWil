@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Site personnel de Williams Ochietti, passionné de windsurfing/planche à voile">
+    <link rel="icon" href="image/logo.png" type="image/png">
+    <title>Williams Ochietti</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div id="loader-modal" class="loader-modal">
+    <div class="modal-blur">
+      <div class="loader-container">
+        <img src="image/loader.png" class="loader" alt="Planche" />
+      </div>
+    </div>
+  </div>
+    <header>
+        <div id="top"></div>
+        <a href="#top" class="back-to-top" id="backToTop">
+            <i class="fas fa-arrow-up"></i>
+          </a>          
+
+        <section class="banner">
+            <div class="container">
+                <a href="index.html">
+                    <img src="image/logo.png" class="logo" alt="Logo du site">
+                </a>
+                <nav class="menu">
+                    <ul>
+                        <li><a href="#">Accueil</a></li>
+                        <li><a href="#galerie">Galerie</a></li>
+                        <li><a href="#contact">Me contacter</a></li>
+                    </ul>
+                </nav>
+            </div>    
+        </section> 
+        <div class="titre">
+            <div class="titre-contenu">
+                <h1>Windsurfing - Foil</h1>
+            </div>
+        </div>        
+    </header>
+
+    <div class="separator">
+        <section class="presentation">
+            <div>
+                <img src="image/Williams-ia.PNG" class="image-presentation" alt="Williams sur sa planche à voile généré par ia">
+                <div>
+                    <p class="salut">Salut ! Moi c'est Williams...</p>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis quasi, quae voluptates repellendus, ratione reiciendis recusandae aut quod facilis voluptas consectetur unde doloribus dicta alias veritatis odit voluptatibus eos delectus.</p>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam placeat dicta quos labore, voluptas sapiente at saepe sunt officia blanditiis fugiat, nihil, nam dolorum illo quia magnam repellendus commodi sit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur mollitia neque in blanditiis. Iste eveniet, commodi reprehenderit voluptates porro vero, tenetur soluta in consectetur repudiandae dolor sint harum aliquid odit? Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur excepturi facilis ab! Inventore harum perferendis est eaque deserunt facere omnis. Alias cum ratione hic labore perspiciatis odit, iure doloribus perferendis? Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem est animi pariatur mollitia vel, voluptates repellat. Asperiores, ipsa voluptatem ex voluptatibus, velit eos sit ducimus aliquid eaque id, sapiente voluptatum?</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    <main>
+        <section class="body-container" id="galerie">
+            <h2 class="galerie">Galerie</h2>
+            <div class="grid">
+                <div id="item-0" class="grid-item">
+                    <img src="image/image-grid.jpg" alt="Description de l'image">
+                </div>
+                <div id="item-1" class="grid-item">
+                    <img src="image/image-grid-3.jpg" alt="Description de l'image">
+                </div>
+                <div id="item-2" class="grid-item">
+                    <img src="image/image-grid.jpg" alt="Description de l'image">
+                </div>
+                <div id="item-3" class="grid-item">
+                    <img src="image/image-grid-3.jpg" alt="Description de l'image">
+                </div>
+                <div id="item-4" class="grid-item">
+                    <img src="image/image-grid.jpg" alt="Description de l'image">
+                </div>
+                <div id="item-5" class="grid-item">
+                    <img src="image/image-grid-3.jpg" alt="Description de l'image">
+                </div>
+                <div id="item-6" class="grid-item">
+                    <img src="image/image-grid.jpg" alt="Description de l'image">
+                </div>
+                <div id="item-7" class="grid-item">
+                    <img src="image/image-grid-3.jpg" alt="Description de l'image">
+                </div>
+                <div id="item-8" class="grid-item">
+                    <img src="image/image-grid.jpg" alt="Description de l'image">
+                </div>
+                <div id="item-9" class="grid-item">
+                    <img src="image/image-grid-3.jpg" alt="Description de l'image">
+                </div>
+                <div id="item-10" class="grid-item">
+                    <img src="image/image-grid.jpg" alt="Description de l'image">
+                </div>
+                <div id="item-11" class="grid-item">
+                    <img src="image/image-grid-3.jpg" alt="Description de l'image">
+                </div>
+                <div id="item-12" class="grid-item">
+                    <img src="image/image-grid.jpg" alt="Description de l'image">
+                </div>
+              </div>
+
+        <hr>
+
+        <h2 class="contacter-padding">Me contacter</h2>
+        <form action="form.html" method="post" id="contact">
+            <div class="flex">
+                <div class="col">
+                    <input type="text" id="firstname" name="firstname" placeholder="Ton prénom">
+                    <label for="firstname"></label>
+                    <input type="email" id="email" name="email" placeholder="Ton email">
+                </div>
+                <div class="col">
+                    <textarea name="message" id="message" placeholder="Ton message"></textarea>
+                </div>
+            </div>
+            <div class="toolbar">
+                <button type="submit" class="button">Envoyer</button>
+            </div>
+        </form>
+    </section>   
+    </main>
+    <footer class="footer">
+        <div class="footer-left">
+          <a href="index.html"><img src="image/logo.png" alt="Logo du site" class="footer-logo"></a>
+          <div class="footer-texts">
+            <p>&copy; 2025 Williams Ochietti</p>
+            <p>Site personnel à but non commercial</p>
+            <p>Propriétaire : Williams Ochietti</p>
+          </div>
+        </div>
+      
+        <div class="footer-right">
+          <p>Contact : <a href="mailto:willyoch@hotmail.fr">willyoch@hotmail.fr</a></p>
+          <p>Crédits images :</p>
+          <ul>
+            <li>Images personnelles (Williams Ochietti)</li>
+            <li>Images de fond issues de <em>ChatGPT, Wallcraft</em>, utilisées selon leurs conditions d'utilisation.</li>
+          </ul>
+        </div>
+      </footer>      
+    <script src="js/index.js"></script>
+    <div id="overlay"></div>
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImg">
+    </div>      
+</body>
+</html>
