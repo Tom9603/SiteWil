@@ -236,7 +236,7 @@ a {
     background-image: url('../image/waves.png');
     background-repeat: repeat-x;
     background-position: bottom;
-    background-size: auto 125px;
+    background-size: auto 125px; 
     animation: background-wave-animation-bottom 30s linear infinite;
 }
 
