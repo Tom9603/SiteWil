@@ -756,7 +756,8 @@ textarea {
         margin-top: 2rem;
         margin-bottom: 0;
         padding-bottom: 0;
-
+        animation: rebound 2s ease-in-out infinite;
+        will-change: transform;
     }
 
     .salut {
