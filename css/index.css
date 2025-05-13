@@ -238,6 +238,7 @@ a {
     background-position: bottom;
     background-size: auto 125px; 
     animation: background-wave-animation-bottom 30s linear infinite;
+    padding-bottom: 60px;
 }
 
 @keyframes background-wave-animation-bottom {
