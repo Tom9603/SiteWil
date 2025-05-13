@@ -28,7 +28,7 @@ body, html {
 html {
     font-size: 62.5%;
     scroll-behavior: smooth;
-    background-color: rgb(247, 247, 247);
+    background-color: #c5baa700;
 }
 
 header {
