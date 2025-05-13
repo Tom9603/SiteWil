@@ -209,8 +209,6 @@ a {
     color: #444 !important;
     width: 100%;
     user-select: none ;
-    
-
 }
 
 .separator div {
@@ -233,25 +231,22 @@ a {
 
 /**************************************** PRESENTATION ****************************************/
 
-.presentation {
+.presentation { 
     position: relative;
     background-image: url('../image/waves.png');
     background-repeat: repeat-x;
     background-position: bottom;
-    background-size: auto 32px;
+    background-size: auto 125px;
+    animation: background-wave-animation-bottom 30s linear infinite;
 }
 
-.presentation::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 32px;
-    background-image: url('../image/waves.png');
-    background-repeat: repeat-x;
-    background-size: auto 32px;
-    transform: scaleY(-1);
+@keyframes background-wave-animation-bottom {
+    0% {
+        background-position: 0 bottom;
+    }
+    100% {
+        background-position: 100% bottom;
+    }
 }
 
 .presentation > div {
@@ -612,11 +607,11 @@ textarea {
   background: none; /* Pas de fond */
   border: none; /* Pas de bordure */
   display: block; /* On évite les espaces autour de l'image */
-  animation: wave-animation 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) infinite;
-
+  animation: loader-wave-animation 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) infinite;
 }
 
-@keyframes wave-animation {
+/* Animation du loader */
+@keyframes loader-wave-animation {
   0% { transform: translateY(0) rotate(0deg); }
   12.5% { transform: translateY(5px) rotate(7.5deg); }
   25% { transform: translateY(10px) rotate(15deg); }
