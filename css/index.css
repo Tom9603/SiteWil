@@ -758,8 +758,6 @@ textarea {
         padding-bottom: 0;
         animation: rebound 2s ease-in-out infinite;
         will-change: transform;
-        background-color: red;
-        border: 2px solid blue;
     }
 
     .salut {
