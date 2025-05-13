@@ -278,6 +278,40 @@ a {
     user-select: none;
 }
 
+.image-presentation {
+    animation: rebound 2s ease-in-out infinite;
+}
+
+@keyframes rebound {
+    0%   { transform: translateY(0); }
+    4%   { transform: translateY(2px); }
+    8%   { transform: translateY(4px); }
+    12%  { transform: translateY(6px); }
+    16%  { transform: translateY(8px); }
+    20%  { transform: translateY(10px); }
+    24%  { transform: translateY(20px); }
+    28%  { transform: translateY(40px); }
+    32%  { transform: translateY(20px); }
+    36%  { transform: translateY(9px); }
+    40%  { transform: translateY(8px); }
+    44%  { transform: translateY(6px); }
+    48%  { transform: translateY(4px); }
+    52%  { transform: translateY(2px); }
+    56%  { transform: translateY(0px); }
+    60%  { transform: translateY(-0.5px); }
+    64%  { transform: translateY(-1.2px); }
+    68%  { transform: translateY(-2px); }
+    72%  { transform: translateY(-2.8px); }
+    76%  { transform: translateY(-3.4px); }
+    80%  { transform: translateY(-2.5px); }
+    84%  { transform: translateY(-1.5px); }
+    88%  { transform: translateY(-0.8px); }
+    92%  { transform: translateY(-0.4px); }
+    96%  { transform: translateY(-0.2px); }
+    100% { transform: translateY(0); }
+}
+
+
 .salut {
     font-size: 2em;
 }
