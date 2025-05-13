@@ -238,7 +238,9 @@ a {
     background-position: bottom;
     background-size: auto 125px; 
     animation: background-wave-animation-bottom 30s linear infinite;
+    padding-bottom: 12rem;
     padding-bottom: 60px;
+    min-height: 30rem;
 }
 
 @keyframes background-wave-animation-bottom {
@@ -260,7 +262,6 @@ a {
 
 .presentation > div > div {
     width: 50%;
-    margin-top: -4rem;
 }
 
 .presentation p:not(.salut) {
