@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const body = document.body;
     const galleryImages = document.querySelectorAll('.grid-item img');
     let currentIndex = -1; // pour la navigation via clavier
+    const loaderModal = document.getElementById('loader-modal');
 
     // Vérifier si les éléments nécessaires sont présents dans le DOM
     if (!modal || !modalImg || !closeBtn || !overlay) {
@@ -100,11 +101,10 @@ document.addEventListener("DOMContentLoaded", () => {
     // Loader
     window.addEventListener('load', () => {
         setTimeout(() => {
-            const modal = document.getElementById('loader-modal');
-            if (modal) {
-                modal.style.opacity = '0';
+            if (loaderModal) {
+                loaderModal.style.opacity = '0';
                 setTimeout(() => {
-                    modal.style.display = 'none';
+                    loaderModal.style.display = 'none';
                 }, 500); // Attend la fin de la transition
             }
         }, 2000);

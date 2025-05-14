@@ -504,28 +504,34 @@ a {
 }
 
 .modal-content img {
-    max-width: 80vw;
-    max-height: 80vh;
-    width: auto;
-    height: auto;
+    max-width: 80vw;  /* Limiter la largeur à 80% de la largeur de la fenêtre */
+    max-height: 80vh; /* Limiter la hauteur à 80% de la hauteur de la fenêtre */
+    width: 100%; /* L'image prend toute la largeur de son conteneur */
+    height: auto; /* Garder la proportion de l'image */
     display: block;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-    object-fit: contain;
+    object-fit: contain; /* Conserve les proportions sans déformation */
+    margin: 0 auto; /* Centrer l'image */
+    position: relative;
+    display: inline-block;
+    max-width: 90vw; /* Limite la largeur de l'image à 90% de la fenêtre pour qu'elle ne soit pas trop grande */
+    max-height: 80vh; /* Limite la hauteur de l'image */
+    margin: auto; /* Centrer la modale */
 }
 
 /* Position fixe pour la croix en dehors de l'image */
 .close {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    color: #fff;
-    font-size: 3rem;
-    font-weight: bold;
+    position: absolute;
+    top: 10px; /* À 10px du bord supérieur */
+    right: 10px; /* À 10px du bord droit */
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: white;
     cursor: pointer;
-    z-index: 10000;
-    opacity: 0; /* Cachée au départ */
-    transition: opacity 0.3s ease; /* Transition pour faire apparaître la croix */
+    z-index: 1000; /* S'assurer que la croix est au-dessus de l'image */
+    transition: color 0.3s;
 }
 
 .close:hover {
@@ -536,6 +542,9 @@ a {
     from { transform: scale(0.7); }
     to { transform: scale(1); }
 }
+
+
+
 
 /**************************************** FORMULAIRE ****************************************/
 
