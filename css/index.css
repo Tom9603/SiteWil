@@ -901,8 +901,8 @@ textarea {
 
 .close {
     position: absolute;
-    top: 10px;
-    right: -70px;
+    top: -30px;
+    right: -50px;
     font-size: 3rem;
     color: white;
     z-index: 1001;
@@ -918,10 +918,6 @@ textarea {
 .disable-interaction *:not(#imageModal):not(#overlay) {
     pointer-events: none !important; /* Empêche les clics sauf sur le modal et overlay */
 }
-
-
-    
-    
     
     /* Formulaire */
 
