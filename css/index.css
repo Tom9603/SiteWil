@@ -901,8 +901,8 @@ textarea {
 
 .close {
     position: absolute;
-    top: -30px;
-    right: -50px;
+    top: -10px;
+    right: -20px;
     font-size: 3rem;
     color: white;
     z-index: 1001;
