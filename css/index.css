@@ -863,16 +863,15 @@ textarea {
 
     /* Modal style */
     #overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background-color: rgba(0, 0, 0, 0.6); /* ou transparent si tu veux juste bloquer */
-        z-index: 999; /* suffisamment haut pour couvrir tout */
-        display: none; /* caché par défaut */
-        pointer-events: auto;
-    }
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 9998;
+    display: none;
+  }
     
     #imageModal {
         z-index: 1000; /* au-dessus de l'overlay */
@@ -885,16 +884,20 @@ textarea {
 
 .modal {
     position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    background-color: #111;
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 90%;
+    max-height: 80%;
+    overflow-y: auto;
     display: none;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1000;
-    pointer-events: none;
-}
+  }
 
 .modal-content {
     position: relative;
@@ -904,6 +907,28 @@ textarea {
     border-radius: 10px;
 }
 
+.modal.active,
+  #overlay.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #facc15;
+    color: #000;
+    border: none;
+    border-radius: 50%;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    z-index: 10000;
+  }
+  
 .close {
     position: absolute;
     top: -10px;
