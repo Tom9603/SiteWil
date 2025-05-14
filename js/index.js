@@ -35,8 +35,8 @@ document.addEventListener("DOMContentLoaded", () => {
         img.addEventListener("click", () => {
             if (modal && modalImg) {
                 modal.classList.add('show'); // Ajouter la classe 'show' pour rendre visible la modale
-                overlay.style.display = "block";
-                body.classList.add('disable-interaction');
+                overlay.classList.add("show"); // Utilisation de la classe show pour overlay
+                body.classList.add('disable-interaction'); // Désactive l'interaction avec le corps
                 modalImg.src = img.src;
                 currentIndex = index;
             }
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Ferme le modal quand on clique sur la croix
     closeBtn.addEventListener("click", closeModal);
 
-    // Ferme le modal si l'utilisateur clique sur le fond
+    // Ferme le modal si l'utilisateur clique sur le fond (overlay)
     function closeModalIfClickedOutside(e) {
         if (e.target === modal || e.target === overlay) {
             closeModal();
@@ -56,8 +56,8 @@ document.addEventListener("DOMContentLoaded", () => {
     function closeModal() {
         if (modal) {
             modal.classList.remove('show'); // Retirer la classe 'show' pour masquer la modale
-            overlay.style.display = "none";
-            body.classList.remove('disable-interaction');
+            overlay.classList.remove("show"); // Retirer la classe show pour l'overlay
+            body.classList.remove('disable-interaction'); // Réactiver l'interaction avec le corps
             currentIndex = -1;
         }
     }
