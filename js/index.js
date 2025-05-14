@@ -9,6 +9,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const galleryImages = document.querySelectorAll('.grid-item img');
     let currentIndex = -1; // pour la navigation via clavier
 
+    // Vérifier si les éléments nécessaires sont présents dans le DOM
+    if (!modal || !modalImg || !closeBtn || !overlay) {
+        console.error("Les éléments nécessaires à la modale sont manquants dans le DOM.");
+        return;
+    }
+
     // Gère l'affichage du menu et du bouton "backToTop" au scroll
     window.addEventListener('scroll', () => {
         const scrollY = window.scrollY;
@@ -23,14 +29,16 @@ document.addEventListener("DOMContentLoaded", () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // Affiche le modal avec l'image en grand
+    // Affiche la modale avec l'image en grand
     galleryImages.forEach((img, index) => {
         img.addEventListener("click", () => {
-            modal.style.display = "flex";
-            overlay.style.display = "block";
-            body.classList.add('disable-interaction');
-            modalImg.src = img.src;
-            currentIndex = index;
+            if (modal && modalImg) {
+                modal.classList.add('show'); // Ajouter la classe 'show' pour rendre visible la modale
+                overlay.style.display = "block";
+                body.classList.add('disable-interaction');
+                modalImg.src = img.src;
+                currentIndex = index;
+            }
         });
     });
 
@@ -45,10 +53,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function closeModal() {
-        modal.style.display = "none";
-        overlay.style.display = "none";
-        body.classList.remove('disable-interaction');
-        currentIndex = -1;
+        if (modal) {
+            modal.classList.remove('show'); // Retirer la classe 'show' pour masquer la modale
+            overlay.style.display = "none";
+            body.classList.remove('disable-interaction');
+            currentIndex = -1;
+        }
     }
 
     window.addEventListener('click', closeModalIfClickedOutside);
@@ -56,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Navigation via clavier
     window.addEventListener('keydown', (e) => {
-        if (modal.style.display === "flex") {
+        if (modal.classList.contains("show")) {
             if (e.key === "Escape") {
                 closeModal();
             } else if (e.key === "ArrowRight") {
@@ -86,15 +96,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     adjustImageMargins(); // initial
     window.addEventListener('resize', adjustImageMargins);
-});
 
-// Loader
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    const modal = document.getElementById('loader-modal');
-    modal.style.opacity = '0';
-    setTimeout(() => {
-      modal.style.display = 'none';
-    }, 500); // Attend la fin de la transition
-  }, 2000);
+    // Loader
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            const modal = document.getElementById('loader-modal');
+            if (modal) {
+                modal.style.opacity = '0';
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                }, 500); // Attend la fin de la transition
+            }
+        }, 2000);
+    });
 });

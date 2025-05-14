@@ -480,49 +480,61 @@ a {
 
 /**************************************** ZOOM PICTURE ****************************************/
 
-.modal { 
-    display: none;
+/* Modifications dans les styles */
+.modal {
+    display: none; /* Définir la modale comme invisible par défaut */
+    opacity: 0; /* Modale invisible au départ */
     position: fixed;
     z-index: 9999;
     left: 0;
     top: 0;
     width: 100vw;
     height: 100vh;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.9);
+    background-color: rgba(0, 0, 0, 0.9);
     justify-content: center;
     align-items: center;
+    overflow: auto;
     user-select: none;
+    transition: opacity 0.3s ease; /* Transition sur opacité seulement */
 }
 
-.modal-content {
-    margin: auto;
+.modal.show {
+    display: flex; /* Afficher la modale quand on ajoute la classe .show */
+    opacity: 1; /* Rendre l'opacité à 1 pour la faire apparaître */
+}
+
+.modal-content img {
+    max-width: 80vw;
+    max-height: 80vh;
+    width: auto;
+    height: auto;
     display: block;
-    max-width: 90%;
-    max-height: 90%;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-    animation: zoomIn 0.3s ease;
+    object-fit: contain;
 }
 
-@keyframes zoomIn {
-    from {transform: scale(0.7);}
-    to {transform: scale(1);}
-}
-
+/* Position fixe pour la croix en dehors de l'image */
 .close {
-    position: absolute;
-    top: 5em;
-    right: 20em;
+    position: fixed;
+    top: 20px;
+    right: 20px;
     color: #fff;
     font-size: 3rem;
     font-weight: bold;
     cursor: pointer;
-    transition: color 0.3s ease;
+    z-index: 10000;
+    opacity: 0; /* Cachée au départ */
+    transition: opacity 0.3s ease; /* Transition pour faire apparaître la croix */
 }
 
 .close:hover {
     color: #aaa;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.7); }
+    to { transform: scale(1); }
 }
 
 /**************************************** FORMULAIRE ****************************************/
