@@ -892,6 +892,7 @@ textarea {
 }
 
 .modal-content {
+    position: relative;
     max-width: 70%;
     max-height: 70%;
     pointer-events: auto;
@@ -900,8 +901,8 @@ textarea {
 
 .close {
     position: absolute;
-    top: 30px;
-    right: 30px;
+    top: 10px;
+    right: -10px;
     font-size: 3rem;
     color: white;
     z-index: 1001;
