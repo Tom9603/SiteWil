@@ -503,6 +503,10 @@ a {
     opacity: 1; /* Rendre l'opacité à 1 pour la faire apparaître */
 }
 
+.modal-content {
+    position: relative;
+}
+
 .modal-content img {
     max-width: 80vw;  /* Limiter la largeur à 80% de la largeur de la fenêtre */
     max-height: 80vh; /* Limiter la hauteur à 80% de la hauteur de la fenêtre */
@@ -523,8 +527,8 @@ a {
 /* Position fixe pour la croix en dehors de l'image */
 .close {
     position: absolute;
-    top: 10px; /* À 10px du bord supérieur */
-    right: 10px; /* À 10px du bord droit */
+    top: 20%; /* À 10px du bord supérieur */
+    right: -50%; /* À 10px du bord droit */
     background: none;
     border: none;
     font-size: 30px;
