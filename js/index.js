@@ -98,3 +98,27 @@ window.addEventListener('load', () => {
     }, 500); // Attend la fin de la transition
   }, 2000);
 });
+
+// Pour la modale media queries 768px
+
+// Exemple pour gérer l'ouverture de la modale et empêcher de cliquer sur une image sans fermer la modale
+let modal = document.querySelector('.modale');
+let overlay = document.querySelector('.overlay');
+let images = document.querySelectorAll('.image-gallery img');
+
+// Ajouter un événement sur chaque image de la galerie pour ouvrir la modale
+images.forEach(image => {
+  image.addEventListener('click', function(event) {
+    if (!modal.classList.contains('modale-active')) {
+      modal.classList.add('modale-active');
+      overlay.style.display = 'block'; // Afficher l'overlay
+      modal.querySelector('img').src = event.target.src; // Afficher l'image dans la modale
+    }
+  });
+});
+
+// Ajouter un événement pour fermer la modale
+overlay.addEventListener('click', function() {
+  modal.classList.remove('modale-active');
+  overlay.style.display = 'none'; // Cacher l'overlay
+});
