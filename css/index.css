@@ -103,6 +103,7 @@ a {
     display: flex;
     justify-content: center;
     padding: 2rem 0;
+    user-select: none;
 }
 
 .container {
@@ -114,6 +115,7 @@ a {
 
 .logo {
     width: 12rem;
+    user-select: none;
 }
 
 .menu ul {
@@ -296,38 +298,45 @@ a {
 }
 
 .image-presentation {
-    animation: rebound 2s ease-in-out infinite;
+    animation: rebound 4s ease-in-out infinite;
 }
 
 @keyframes rebound {
-    0%   { transform: translateY(0); }
-    4%   { transform: translateY(2px); }
-    8%   { transform: translateY(4px); }
-    12%  { transform: translateY(6px); }
-    16%  { transform: translateY(8px); }
-    20%  { transform: translateY(10px); }
-    24%  { transform: translateY(20px); }
-    28%  { transform: translateY(40px); }
-    32%  { transform: translateY(20px); }
-    36%  { transform: translateY(9px); }
-    40%  { transform: translateY(8px); }
-    44%  { transform: translateY(6px); }
-    48%  { transform: translateY(4px); }
-    52%  { transform: translateY(2px); }
-    56%  { transform: translateY(0px); }
-    60%  { transform: translateY(-0.5px); }
-    64%  { transform: translateY(-1.2px); }
-    68%  { transform: translateY(-2px); }
-    72%  { transform: translateY(-2.8px); }
-    76%  { transform: translateY(-3.4px); }
-    80%  { transform: translateY(-2.5px); }
-    84%  { transform: translateY(-1.5px); }
-    88%  { transform: translateY(-0.8px); }
-    92%  { transform: translateY(-0.4px); }
-    96%  { transform: translateY(-0.2px); }
-    100% { transform: translateY(0); }
+    0%   { transform: translateY(50px); }
+    3%   { transform: translateY(60px); }
+    6%   { transform: translateY(70px); }
+    9%   { transform: translateY(80px); }
+    12%  { transform: translateY(90px); }
+    15%  { transform: translateY(95px); }
+    18%  { transform: translateY(100px); }
+    21%  { transform: translateY(105px); }
+    24%  { transform: translateY(110px); }
+    27%  { transform: translateY(105px); }
+    30%  { transform: translateY(100px); }
+    33%  { transform: translateY(95px); }
+    36%  { transform: translateY(90px); }
+    39%  { transform: translateY(80px); }
+    42%  { transform: translateY(70px); }
+    45%  { transform: translateY(60px); }
+    48%  { transform: translateY(55px); }
+    51%  { transform: translateY(50px); }
+    54%  { transform: translateY(55px); }
+    57%  { transform: translateY(60px); }
+    60%  { transform: translateY(70px); }
+    63%  { transform: translateY(80px); }
+    66%  { transform: translateY(90px); }
+    69%  { transform: translateY(95px); }
+    72%  { transform: translateY(100px); }
+    75%  { transform: translateY(105px); }
+    78%  { transform: translateY(110px); }
+    81%  { transform: translateY(105px); }
+    84%  { transform: translateY(100px); }
+    87%  { transform: translateY(95px); }
+    90%  { transform: translateY(90px); }
+    93%  { transform: translateY(80px); }
+    96%  { transform: translateY(70px); }
+    100% { transform: translateY(50px); }
 }
-
 
 .salut {
     font-size: 2em;
@@ -641,6 +650,7 @@ textarea {
   width: 100%;
   height: 100%;
   overflow: hidden; /* On empêche les débordements */
+  user-select: none;
 }
 
 /* Loader : centrer l'image sans fond autour */
@@ -764,6 +774,10 @@ textarea {
         margin-bottom: 0;
         padding-bottom: 0;
     }
+    
+    .text-content {
+    order: 1; /* texte au-dessus */
+    }
 
     .image-presentation {
         width: 90%;
@@ -773,8 +787,9 @@ textarea {
         margin-top: 2rem;
         margin-bottom: 0;
         padding-bottom: 0;
-        animation: rebound 2s ease-in-out infinite;
+        animation: rebound 4s ease-in-out infinite;
         will-change: transform;
+        order: 2; /* image en dessous */
     }
 
     .salut {
