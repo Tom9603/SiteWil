@@ -26,7 +26,7 @@ window.addEventListener('scroll', () => {
 
 // Détection mobile simple
 function isMobile() {
-    return window.innerWidth <= 768;
+    return window.innerWidth <= 768; 
 }
 
 // Scroll plus lent pour mobile
