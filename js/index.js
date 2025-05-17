@@ -16,19 +16,51 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    // Gère l'affichage du menu et du bouton "backToTop" au scroll
-    window.addEventListener('scroll', () => {
-        const scrollY = window.scrollY;
-        menu.classList.toggle('fixed', scrollY > 50);
-        menu.classList.toggle('scrolled', scrollY > 100);
-        backToTop.classList.toggle('show', scrollY > 100);
-    });
+// Gère l'affichage du menu et du bouton "backToTop" au scroll
+window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    menu.classList.toggle('fixed', scrollY > 50);
+    menu.classList.toggle('scrolled', scrollY > 100);
+    backToTop.classList.toggle('show', scrollY > 100);
+});
 
-    // Retour en haut de la page
-    backToTop.addEventListener('click', (e) => {
-        e.preventDefault();
+// Détection mobile simple
+function isMobile() {
+    return window.innerWidth <= 768;
+}
+
+// Scroll plus lent pour mobile
+function slowScrollToTop() {
+    const duration = 1200; // ralentir ici si tu veux encore plus doux
+    const start = window.scrollY;
+    const startTime = performance.now();
+
+    function scroll(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3); // easing cubic-out
+
+        window.scrollTo(0, start * (1 - ease));
+
+        if (progress < 1) {
+            requestAnimationFrame(scroll);
+        }
+    }
+
+    requestAnimationFrame(scroll);
+}
+
+// Retour en haut de la page
+backToTop.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    if (isMobile()) {
+        slowScrollToTop();
+    } else {
         window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    }
+});
+
 
     // Affiche la modale avec l'image en grand
     galleryImages.forEach((img, index) => {
