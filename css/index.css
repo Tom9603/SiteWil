@@ -910,7 +910,7 @@ textarea {
     right: -35px;
     font-size: 3rem;
     color: white;
-    z-index: 1001;
+    z-index: 9999;
     cursor: pointer; 
 }
 
