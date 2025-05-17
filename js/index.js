@@ -24,33 +24,35 @@ window.addEventListener('scroll', () => {
     backToTop.classList.toggle('show', scrollY > 100);
 });
 
-// Détection mobile simple
+// Détection simple mobile/tablette
 function isMobile() {
-    return window.innerWidth <= 768; 
+    return window.innerWidth <= 768;
 }
 
-// Scroll plus lent pour mobile
+// Scroll fluide ralenti pour mobile avec easing cubic-out
 function slowScrollToTop() {
-    const duration = 1200; // ralentir ici si tu veux encore plus doux
+    const duration = 1200; // durée en ms, à ajuster selon besoin
     const start = window.scrollY;
     const startTime = performance.now();
 
-    function scroll(currentTime) {
+    function scrollStep(currentTime) {
         const elapsed = currentTime - startTime;
         const progress = Math.min(elapsed / duration, 1);
-        const ease = 1 - Math.pow(1 - progress, 3); // easing cubic-out
+        // easing cubic-out
+        const ease = 1 - Math.pow(1 - progress, 3);
+        const position = start * (1 - ease);
 
-        window.scrollTo(0, start * (1 - ease));
+        window.scrollTo(0, position);
 
         if (progress < 1) {
-            requestAnimationFrame(scroll);
+            requestAnimationFrame(scrollStep);
         }
     }
 
-    requestAnimationFrame(scroll);
+    requestAnimationFrame(scrollStep);
 }
 
-// Retour en haut de la page
+// Gestion du clic sur backToTop
 backToTop.addEventListener('click', (e) => {
     e.preventDefault();
 
@@ -60,6 +62,7 @@ backToTop.addEventListener('click', (e) => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 });
+
 
 
     // Affiche la modale avec l'image en grand
