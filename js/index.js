@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
    // Gère l'affichage du menu et du bouton "backToTop" au scroll
 window.addEventListener('scroll', () => {
     const scrollY = window.scrollY;
-    menu.classList.toggle('fixed', scrollY > 0);
+    menu.classList.toggle('fixed', scrollY > 100);
     menu.classList.toggle('scrolled', scrollY > 100);
     backToTop.classList.toggle('show', scrollY > 100);
 });
@@ -55,7 +55,7 @@ backToTop.addEventListener('click', (e) => {
     e.preventDefault();
 
     if (isMobile()) {
-        slowScrollToTop();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
