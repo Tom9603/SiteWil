@@ -29,26 +29,20 @@ function isMobile() {
     return window.innerWidth <= 768;
 }
 
-// Scroll fluide ralenti linéaire pour mobile
+// Scroll linéaire à vitesse constante pour mobile
 function slowScrollToTop() {
-    const duration = 1200; 
-    const start = window.scrollY;
-    const startTime = performance.now();
+    const speed = 10;       // pixels à remonter par intervalle (ajuste pour vitesse)
+    const intervalTime = 15; // ms entre chaque "pas"
 
-    function scrollStep(currentTime) {
-        const elapsed = currentTime - startTime;
-        let progress = elapsed / duration;
-        if (progress > 1) progress = 1;
-
-        const position = start * (1 - progress);
-        window.scrollTo(0, position);
-
-        if (progress < 1) {
-            requestAnimationFrame(scrollStep);
+    const scrollInterval = setInterval(() => {
+        const currentPos = window.scrollY;
+        if (currentPos > 0) {
+            const newPos = Math.max(currentPos - speed, 0);
+            window.scrollTo(0, newPos);
+        } else {
+            clearInterval(scrollInterval);
         }
-    }
-
-    requestAnimationFrame(scrollStep);
+    }, intervalTime);
 }
 
 // Gestion du clic sur backToTop
