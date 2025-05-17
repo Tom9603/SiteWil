@@ -24,30 +24,13 @@ window.addEventListener('scroll', () => {
     backToTop.classList.toggle('show', scrollY > 100);
 });
 
-// Scroll fluide linéaire (cross-browser)
-function scrollToTopLinear() {
-    const start = window.scrollY;
-    const duration = 600; // durée en ms
-    const startTime = performance.now();
-
-    function scroll(currentTime) {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-
-        window.scrollTo(0, start * (1 - progress)); // interpolation linéaire
-
-        if (progress < 1) {
-            requestAnimationFrame(scroll);
-        }
-    }
-
-    requestAnimationFrame(scroll);
-}
-
-// Retour en haut de la page
+// Retour en haut de la page — fluide et natif
 backToTop.addEventListener('click', (e) => {
     e.preventDefault();
-    scrollToTopLinear();
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
 });
 
 
