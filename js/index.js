@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-   // Gère l'affichage du menu et du bouton "backToTop" au scroll
+// Gère l'affichage du menu et du bouton "backToTop" au scroll
 window.addEventListener('scroll', () => {
     const scrollY = window.scrollY;
     menu.classList.toggle('fixed', scrollY > 100);
@@ -24,23 +24,17 @@ window.addEventListener('scroll', () => {
     backToTop.classList.toggle('show', scrollY > 100);
 });
 
-// Détection mobile simple
-function isMobile() {
-    return window.innerWidth <= 768;
-}
-
-// Scroll plus lent pour mobile
-function slowScrollToTop() {
-    const duration = 1000; // ralentir ici si tu veux encore plus doux
+// Scroll fluide linéaire (cross-browser)
+function scrollToTopLinear() {
     const start = window.scrollY;
+    const duration = 600; // durée en ms
     const startTime = performance.now();
 
     function scroll(currentTime) {
         const elapsed = currentTime - startTime;
         const progress = Math.min(elapsed / duration, 1);
-        const ease = 1 - Math.pow(1 - progress, 3); // easing cubic-out
 
-        window.scrollTo(0, start * (1 - ease));
+        window.scrollTo(0, start * (1 - progress)); // interpolation linéaire
 
         if (progress < 1) {
             requestAnimationFrame(scroll);
@@ -53,13 +47,9 @@ function slowScrollToTop() {
 // Retour en haut de la page
 backToTop.addEventListener('click', (e) => {
     e.preventDefault();
-
-    if (isMobile()) {
-        slowScrollToTop();
-    } else {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    scrollToTopLinear();
 });
+
 
     // Affiche la modale avec l'image en grand
     galleryImages.forEach((img, index) => {
