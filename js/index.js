@@ -55,7 +55,7 @@ backToTop.addEventListener('click', (e) => {
     e.preventDefault();
 
     if (isMobile()) {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        slowScrollToTop();
     } else {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
