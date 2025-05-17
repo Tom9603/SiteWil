@@ -721,7 +721,6 @@ textarea {
     /* Texte général */
     html {
         font-size: 55%;
-        scroll-behavior: smooth;
     }
 
     body, html {
