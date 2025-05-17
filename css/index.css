@@ -905,13 +905,14 @@ textarea {
 }
 
 .close {
-    position: absolute;
-    top: -10px;
-    right: -35px;
+    position: fixed;
+    top: 10px;
+    right: 10px;
     font-size: 3rem;
     color: white;
-    z-index: 9999;
-    cursor: pointer; 
+    z-index: 1001;
+    cursor: pointer;
+    pointer-events: auto;
 }
 
 
@@ -920,7 +921,7 @@ textarea {
     pointer-events: none; /* Bloque les clics */
 }
 
-.disable-interaction *:not(#imageModal):not(#overlay) {
+.disable-interaction *:not(#imageModal):not(#overlay):not(.close) {
     pointer-events: none !important; /* Empêche les clics sauf sur le modal et overlay */
 }
     
