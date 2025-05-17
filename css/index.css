@@ -898,15 +898,15 @@ textarea {
 
 .modal-content {
     position: relative;
-    max-width: 50%;
-    max-height: 50%;
+    max-width: 57%;
+    max-height: 57%;
     pointer-events: auto;
     border-radius: 10px;
 }
 
 .close {
     position: fixed;
-    top: 50vh;
+    top: 50%;
     right: 2rem;
     font-size: 3rem;
     color: white;
