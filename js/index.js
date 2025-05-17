@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
    // Gère l'affichage du menu et du bouton "backToTop" au scroll
 window.addEventListener('scroll', () => {
     const scrollY = window.scrollY;
-    menu.classList.toggle('fixed', scrollY > 50);
+    menu.classList.toggle('fixed', scrollY > 100);
     menu.classList.toggle('scrolled', scrollY > 100);
     backToTop.classList.toggle('show', scrollY > 100);
 });
@@ -31,7 +31,7 @@ function isMobile() {
 
 // Scroll plus lent pour mobile
 function slowScrollToTop() {
-    const duration = 0; // ralentir ici si tu veux encore plus doux
+    const duration = 1200; // ralentir ici si tu veux encore plus doux
     const start = window.scrollY;
     const startTime = performance.now();
 
