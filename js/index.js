@@ -31,7 +31,7 @@ function isMobile() {
 
 // Scroll linéaire à vitesse constante pour mobile
 function slowScrollToTop() {
-    const speed = 10;       // pixels à remonter par intervalle (ajuste pour vitesse)
+    const speed = 10;       // pixels à remonter par intervalle (ajuste pour la vitesse)
     const intervalTime = 15; // ms entre chaque "pas"
 
     const scrollInterval = setInterval(() => {
@@ -55,6 +55,7 @@ backToTop.addEventListener('click', (e) => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 });
+
 
 
 
