@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-// Gère l'affichage du menu et du bouton "backToTop" au scroll
+   // Gère l'affichage du menu et du bouton "backToTop" au scroll
 window.addEventListener('scroll', () => {
     const scrollY = window.scrollY;
     menu.classList.toggle('fixed', scrollY > 50);
@@ -24,28 +24,33 @@ window.addEventListener('scroll', () => {
     backToTop.classList.toggle('show', scrollY > 100);
 });
 
-// Détection simple mobile/tablette
+// Détection mobile simple
 function isMobile() {
     return window.innerWidth <= 768;
 }
 
-// Scroll linéaire à vitesse constante pour mobile
+// Scroll plus lent pour mobile
 function slowScrollToTop() {
-    const speed = 10;       // pixels à remonter par intervalle (ajuste pour la vitesse)
-    const intervalTime = 15; // ms entre chaque "pas"
+    const duration = 1200; // ralentir ici si tu veux encore plus doux
+    const start = window.scrollY;
+    const startTime = performance.now();
 
-    const scrollInterval = setInterval(() => {
-        const currentPos = window.scrollY;
-        if (currentPos > 0) {
-            const newPos = Math.max(currentPos - speed, 0);
-            window.scrollTo(0, newPos);
-        } else {
-            clearInterval(scrollInterval);
+    function scroll(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3); // easing cubic-out
+
+        window.scrollTo(0, start * (1 - ease));
+
+        if (progress < 1) {
+            requestAnimationFrame(scroll);
         }
-    }, intervalTime);
+    }
+
+    requestAnimationFrame(scroll);
 }
 
-// Gestion du clic sur backToTop
+// Retour en haut de la page
 backToTop.addEventListener('click', (e) => {
     e.preventDefault();
 
@@ -55,10 +60,6 @@ backToTop.addEventListener('click', (e) => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 });
-
-
-
-
 
     // Affiche la modale avec l'image en grand
     galleryImages.forEach((img, index) => {
