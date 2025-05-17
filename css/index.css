@@ -898,8 +898,8 @@ textarea {
 
 .modal-content {
     position: relative;
-    max-width: 57%;
-    max-height: 57%;
+    max-width: 65%;
+    max-height: 65%;
     pointer-events: auto;
     border-radius: 10px;
 }
