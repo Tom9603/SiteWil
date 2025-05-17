@@ -29,19 +29,18 @@ function isMobile() {
     return window.innerWidth <= 768;
 }
 
-// Scroll fluide ralenti pour mobile avec easing cubic-out
+// Scroll fluide ralenti linéaire pour mobile
 function slowScrollToTop() {
-    const duration = 1200; // durée en ms, à ajuster selon besoin
+    const duration = 1200; 
     const start = window.scrollY;
     const startTime = performance.now();
 
     function scrollStep(currentTime) {
         const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        // easing cubic-out
-        const ease = 1 - Math.pow(1 - progress, 3);
-        const position = start * (1 - ease);
+        let progress = elapsed / duration;
+        if (progress > 1) progress = 1;
 
+        const position = start * (1 - progress);
         window.scrollTo(0, position);
 
         if (progress < 1) {
@@ -62,6 +61,7 @@ backToTop.addEventListener('click', (e) => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 });
+
 
 
 
