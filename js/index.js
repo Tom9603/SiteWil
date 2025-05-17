@@ -31,7 +31,7 @@ function isMobile() {
 
 // Scroll plus lent pour mobile
 function slowScrollToTop() {
-    const duration = 1200; // ralentir ici si tu veux encore plus doux
+    const duration = 0; // ralentir ici si tu veux encore plus doux
     const start = window.scrollY;
     const startTime = performance.now();
 
