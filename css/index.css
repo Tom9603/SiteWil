@@ -906,7 +906,7 @@ textarea {
 
 .close {
     position: fixed;
-    top: 70rem;
+    top: 10vh;
     right: 5rem;
     font-size: 3rem;
     color: white;
